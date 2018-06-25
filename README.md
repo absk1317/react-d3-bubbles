@@ -1,6 +1,6 @@
 ## React Bubbles with help of d3.js 
 
-Still in development phase.
+Still in development phase. (Currently working with the tooltips part)
 ![react-d3-bubbles](react-d3-bubbles.png)
 
 To try out,
@@ -38,8 +38,26 @@ const data = [
     name: "D",
     color: "#64b5f6",
     radius: 32
+  },
+  {
+    index: 4,
+    name: "E",
+    color: "#81c784",
+    radius: 18
+  },
+  {
+    index: 5,
+    name: "F",
+    color: "#f48fb1",
+    radius: 19
+  },
+  {
+    index: 6,
+    name: "G",
+    color: "#64b5f6",
+    radius: 22
   }
-]
+];
 
 class Dashboard extends React.Component {
   render() {
