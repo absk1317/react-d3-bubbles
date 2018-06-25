@@ -1,0 +1,48 @@
+{
+  "name": "react-d3-bubbles",
+  "version": "1.0.1",
+  "description": "A react wrapper over d3.js for bubble chart. ",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lintfix": "eslint src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/absk1317/react-d3-bubbles.git"
+  },
+  "keywords": [
+    "react",
+    "d3",
+    "bubble",
+    "chart",
+    "wrapper",
+    "circle",
+    "tooltip"
+  ],
+  "author": {
+    "name": "abhishek verma",
+    "email": "absk1317@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/absk1317/react-d3-bubbles/issues"
+  },
+  "homepage": "https://github.com/absk1317/react-d3-bubbles#readme",
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "d3": "^5.5.0",
+    "prop-types": "^15.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.0.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.10.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  }
+}
