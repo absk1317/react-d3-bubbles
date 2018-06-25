@@ -1,9 +1,4 @@
 {
-  presets: ['react-app'],
-  env: {
-    production: {
-      plugins: ['transform-remove-console', 'transform-runtime'],
-      presets: ['babili']
-    }
-  }
+  presets: ['env'],
+  plugins: ['transform-object-rest-spread', 'transform-react-jsx']
 }

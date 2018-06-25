@@ -1,12 +1,13 @@
 {
   "name": "react-d3-bubbles",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A react wrapper over d3.js for bubble chart. ",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
-    "lintfix": "eslint src --fix"
+    "lintfix": "eslint src --fix",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,12 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "d3": "^5.5.0",
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "react": "^15.5.4",
+    "webpack": "^2.6.1"
+  },
+  "peerDependencies": {
+    "react": "^15.5.4"
   },
   "devDependencies": {
     "eslint": "^5.0.0",
@@ -41,8 +47,5 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.10.0"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0"
   }
 }
