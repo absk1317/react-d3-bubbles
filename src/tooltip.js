@@ -1,35 +1,48 @@
-import * as d3 from "d3";
-import "./tooltip.css";
+import * as d3 from 'd3';
+// import "./tooltip.css";
 
 function floatingTooltip(tooltipId, width) {
   const tt = d3
-    .select("body")
-    .append("div")
-    .attr("class", "tooltip")
-    .attr("id", tooltipId)
-    .style("pointer-events", "none");
+    .select('body')
+    .append('div')
+    .attr('class', 'tooltip')
+    .attr('id', tooltipId)
+    .style('pointer-events', 'none')
+    .style('position', 'absolute')
+    .style('top', '100px')
+    .style('left', '100px')
+    .style('-moz-border-radius', '5px')
+    .style('border-radius', '5px')
+    .style('border', '2px solid #000')
+    .style('background', '#fff')
+    .style('opacity', '0.9')
+    .style('color', 'black')
+    .style('padding', '10px')
+    .style('width', '300px')
+    .style('font-size', '12px')
+    .style('z-index', '10');
 
   if (width) {
-    tt.style("width", "130px");
+    tt.style('width', '130px');
   }
 
   hideTooltip();
   function showTooltip(content, event) {
-    tt.style("opacity", 1.0).html(content);
+    tt.style('opacity', 1.0).html(content);
 
     updatePosition(event);
   }
 
   function hideTooltip() {
-    tt.style("opacity", 0.0);
+    tt.style('opacity', 0.0);
   }
 
   function updatePosition(event) {
     const xOffset = 20;
     const yOffset = 10;
 
-    const ttw = tt.style("width");
-    const tth = tt.style("height");
+    const ttw = tt.style('width');
+    const tth = tt.style('height');
 
     const wscrY = window.scrollY;
     const wscrX = window.scrollX;
@@ -54,7 +67,7 @@ function floatingTooltip(tooltipId, width) {
       tttop = curY + yOffset;
     }
 
-    tt.style("top", `${tttop}px`).style("left", `${ttleft}px`);
+    tt.style('top', `${tttop}px`).style('left', `${ttleft}px`);
   }
 
   return {
@@ -64,5 +77,5 @@ function floatingTooltip(tooltipId, width) {
   };
 }
 
-const tooltip = floatingTooltip("gates_tooltip", 240);
+const tooltip = floatingTooltip('gates_tooltip', 240);
 export default tooltip;

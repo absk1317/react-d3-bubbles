@@ -1,4 +1,6 @@
 var path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -13,16 +15,13 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules|bower_components|build)/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+          loader: 'babel-loader'
         }
       }
     ]
+    // plugins: [new MiniCssExtractPlugin()]
   },
   externals: {
-    'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    react: 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
   }
 };
-view raw
