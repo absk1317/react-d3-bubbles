@@ -57,14 +57,14 @@ ReactBubbleChart.defaultProps = {
   ],
   width: 400,
   height: 250,
-  center: { x: width / 2, y: height / 2 },
+  center: { x: 200, y: 125 },
   title: 'React Bubble Chart',
   forceStrength: 0.03
 };
 ReactBubbleChart.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  center: PropTypes.object.isRequired,
+  center: PropTypes.object,
   title: PropTypes.string.isRequired,
   forceStrength: PropTypes.number.isRequired,
   data: PropTypes.array.isRequired
