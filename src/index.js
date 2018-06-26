@@ -6,24 +6,9 @@ class ReactBubbleChart extends React.Component {
   render() {
     const { data, width, height, center, title, forceStrength } = this.props;
     return (
-      <div className="card bubblechart">
-        <div className="card__header">
-          <h5 className="card__title">{title}</h5>
-        </div>
-        <div className="card__content">
-          <div className="card__body py-0">
-            <div>
-              <svg width={width} height={height}>
-                <Bubbles
-                  data={data}
-                  forceStrength={forceStrength}
-                  center={center}
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+      <svg width={width} height={height}>
+        <Bubbles data={data} forceStrength={forceStrength} center={center} />
+      </svg>
     );
   }
 }
@@ -32,7 +17,7 @@ ReactBubbleChart.defaultProps = {
   data: [
     {
       index: 0,
-      name: 'Overall',
+      name: 'A',
       color: '#f48fb1',
       radius: 56,
       value: 56,
@@ -40,7 +25,7 @@ ReactBubbleChart.defaultProps = {
     },
     {
       index: 1,
-      name: 'VTK',
+      name: 'B',
       color: '#ffab91',
       value: 34,
       radius: 34,
@@ -48,7 +33,7 @@ ReactBubbleChart.defaultProps = {
     },
     {
       index: 2,
-      name: 'ISI',
+      name: 'C',
       color: '#b87fe9',
       value: 32,
       radius: 32,
@@ -56,7 +41,7 @@ ReactBubbleChart.defaultProps = {
     },
     {
       index: 3,
-      name: 'PPV',
+      name: 'D',
       color: '#64b5f6',
       value: 32,
       radius: 32,
