@@ -1,6 +1,6 @@
 {
   "name": "react-d3-bubbles",
-  "version": "1.4.0",
+  "version": "1.9.0",
   "description": "A react wrapper over d3.js for bubble chart. ",
   "main": "build/index.js",
   "scripts": {

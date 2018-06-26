@@ -34,25 +34,33 @@ ReactBubbleChart.defaultProps = {
       index: 0,
       name: 'Overall',
       color: '#f48fb1',
-      radius: 56
+      radius: 56,
+      value: 56,
+      tooltip: 'tooltip 0'
     },
     {
       index: 1,
       name: 'VTK',
       color: '#ffab91',
-      radius: 34
+      value: 34,
+      radius: 34,
+      tooltip: 'tooltip 1'
     },
     {
       index: 2,
       name: 'ISI',
       color: '#b87fe9',
-      radius: 32
+      value: 32,
+      radius: 32,
+      tooltip: 'tooltip 2'
     },
     {
       index: 3,
       name: 'PPV',
       color: '#64b5f6',
-      radius: 32
+      value: 32,
+      radius: 32,
+      tooltip: 'tooltip 3'
     }
   ],
   width: 400,
