@@ -1,7 +1,7 @@
-## React Bubbles with help of d3.js 
+## React Bubbles with help of d3.js
 
 Still in development phase. (Currently working with the tooltips part)
-![react-d3-bubbles](react-d3-bubbles.png)
+![react-d3-bubbles](sample_image.png)
 
 To try out,
 
@@ -10,7 +10,8 @@ yarn add react-d3-bubbles # for yarn
 npm i --save-dev react-d3-bubbles # for npm
 ```
 
-And use in your component as 
+And use in your component as
+
 ```
 import React from "react";
 import ReactBubbleChart from "react-d3-bubbles";
