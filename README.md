@@ -1,6 +1,6 @@
 ## React Bubbles with help of d3.js
 
-Still in development phase. (Currently working with the tooltips part)
+Still in development phase.
 ![react-d3-bubbles](sample_image.png)
 
 To try out,
