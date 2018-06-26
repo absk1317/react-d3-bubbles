@@ -174,8 +174,7 @@ export default Dashboard;
 
 ## Development
 
-# To get started, clone the below repo and run the following commands:
-
+# To get started, clone ![this](https://github.com/absk1317/react-d3-bubbles-test) repo and run the following commands:
 ```
 # in this repo:
 
