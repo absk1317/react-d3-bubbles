@@ -86,10 +86,10 @@ export default class Bubbles extends React.Component {
                   <tspan x=0 y=-4 dy="1.2em">${d.name}</tspan>`;
         }
         if (d.value && !d.name) {
-          return `<tspan x=0 y=0 dy="1em">${d.value}</tspan>`;
+          return `<tspan x=0 y=-6 dy="1em">${d.value}</tspan>`;
         }
         if (d.name && !d.value) {
-          return `<tspan x=0 y=0 dy="1em">${d.name}</tspan>`;
+          return `<tspan x=0 y=-6 dy="1em">${d.name}</tspan>`;
         }
       })
       .on('mouseover', (d, i) => showDetailLabelHover(d, i, this.state.g))
@@ -113,17 +113,20 @@ export default class Bubbles extends React.Component {
 }
 
 export function showDetail(d) {
+  if (!d.tooltip) return;
   d3.select(this).attr('fill', d3.rgb(d.color).darker(0.5));
-  const content = `<span class="value">tooltip is here</span><br/>`;
+  const content = `<span class="value">${d.tooltip}</span><br/>`;
   tooltip.showTooltip(content, d3.event);
 }
 
 export function hideDetail(d) {
+  if (!d.tooltip) return;
   d3.select(this).attr('fill', d3.rgb(d.color));
   tooltip.hideTooltip();
 }
 
 export function showDetailLabelHover(d, index, g) {
+  if (!d.tooltip) return;
   let elem = g.selectAll('.bubble').filter(function(d, i) {
     return i === index;
   });
@@ -133,5 +136,6 @@ export function showDetailLabelHover(d, index, g) {
 }
 
 export function hideDetailLabelHover(d) {
+  if (!d.tooltip) return;
   tooltip.hideTooltip();
 }
