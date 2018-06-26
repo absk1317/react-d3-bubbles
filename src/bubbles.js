@@ -113,24 +113,24 @@ export default class Bubbles extends React.Component {
 }
 
 export function showDetail(d) {
-  if (!d.tooltip) return;
   d3.select(this).attr('fill', d3.rgb(d.color).darker(0.5));
+  if (!d.tooltip) return;
   const content = `<span class="value">${d.tooltip}</span><br/>`;
   tooltip.showTooltip(content, d3.event);
 }
 
 export function hideDetail(d) {
-  if (!d.tooltip) return;
   d3.select(this).attr('fill', d3.rgb(d.color));
+  if (!d.tooltip) return;
   tooltip.hideTooltip();
 }
 
 export function showDetailLabelHover(d, index, g) {
-  if (!d.tooltip) return;
   let elem = g.selectAll('.bubble').filter(function(d, i) {
     return i === index;
   });
   elem.attr('fill', d3.rgb(d.color).darker(0.5));
+  if (!d.tooltip) return;
   const content = `<span class="value">${d.tooltip}</span><br/>`;
   tooltip.showTooltip(content, d3.event);
 }
