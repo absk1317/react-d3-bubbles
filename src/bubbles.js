@@ -62,10 +62,8 @@ export default class Bubbles extends React.Component {
   renderBubbles = data => {
     const bubbles = this.state.g.selectAll('.bubble').data(data, d => d.id);
 
-    // Exit
     bubbles.exit().remove();
 
-    // Enter
     const bubblesE = bubbles
       .enter()
       .append('circle')
@@ -74,9 +72,6 @@ export default class Bubbles extends React.Component {
       .attr('cx', d => d.x)
       .attr('cy', d => d.y)
       .attr('fill', d => d.color)
-      // .attr('fill', d => fillColor(d.group))
-      // .attr('stroke', d => d3.rgb(fillColor(d.group)).darker())
-      // .attr("stroke-width", 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
     const labels = bubbles
@@ -86,10 +81,18 @@ export default class Bubbles extends React.Component {
       .attr('fill', 'white')
       .classed('label', true)
       .html(function(d) {
-        return `<tspan x=0 y=-20 dy="1em">${d.radius}</tspan>
-                <tspan x=0 y=-4 dy="1.2em">${d.name}</tspan>`;
+        if (d.value && d.name) {
+          return `<tspan x=0 y=-20 dy="1em">${d.value}</tspan>
+                  <tspan x=0 y=-4 dy="1.2em">${d.name}</tspan>`;
+        }
+        if (d.value && !d.name) {
+          return `<tspan x=0 y=0 dy="1em">${d.value}</tspan>`;
+        }
+        if (d.name && !d.value) {
+          return `<tspan x=0 y=0 dy="1em">${d.name}</tspan>`;
+        }
       })
-      .on('mouseover', showDetailLabelHover)
+      .on('mouseover', (d, i) => showDetailLabelHover(d, i, this.state.g))
       .on('mouseout', hideDetailLabelHover);
     labels.transition().duration(0);
     bubblesE
@@ -109,10 +112,6 @@ export default class Bubbles extends React.Component {
   }
 }
 
-/*
-* Function called on mouseover to display the
-* details of a bubble in the tooltip.
-*/
 export function showDetail(d) {
   d3.select(this).attr('fill', d3.rgb(d.color).darker(0.5));
   const content = `<span class="value">tooltip is here</span><br/>`;
@@ -124,8 +123,12 @@ export function hideDetail(d) {
   tooltip.hideTooltip();
 }
 
-export function showDetailLabelHover(d) {
-  const content = `<span class="value">tooltip is here</span><br/>`;
+export function showDetailLabelHover(d, index, g) {
+  let elem = g.selectAll('.bubble').filter(function(d, i) {
+    return i === index;
+  });
+  elem.attr('fill', d3.rgb(d.color).darker(0.5));
+  const content = `<span class="value">${d.tooltip}</span><br/>`;
   tooltip.showTooltip(content, d3.event);
 }
 
