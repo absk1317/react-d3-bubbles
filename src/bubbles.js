@@ -30,9 +30,9 @@ export default class Bubbles extends React.Component {
 
   state = { g: null };
 
-  shouldComponentUpdate() {
-    return false;
-  }
+  // shouldComponentUpdate() {
+  //   return false;
+  // }
 
   onRef = ref => {
     this.setState({ g: d3.select(ref) }, () =>
