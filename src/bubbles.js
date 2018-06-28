@@ -51,10 +51,11 @@ export default class Bubbles extends React.Component {
   };
 
   charge = d => {
-    return (
-      -this.props.forceStrength *
-      d.radius ** (Math.random() * (2.09 - 2.01) + 2.01)
-    );
+    let { keepPositionIntactMultiplier } = this.props,
+      multiplier = Math.random() * (2.2 - 2.1) + 2.1;
+    if (keepPositionIntactMultiplier) multiplier = keepPositionIntactMultiplier;
+
+    return -this.props.forceStrength * d.radius ** multiplier;
 
     // return -this.props.forceStrength * d.radius ** 2.06;
   };

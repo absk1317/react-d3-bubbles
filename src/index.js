@@ -4,10 +4,23 @@ import PropTypes from 'prop-types';
 
 class ReactBubbleChart extends React.Component {
   render() {
-    const { data, width, height, center, title, forceStrength } = this.props;
+    const {
+      data,
+      width,
+      height,
+      center,
+      title,
+      forceStrength,
+      keepPositionIntactMultiplier
+    } = this.props;
     return (
       <svg width={width} height={height}>
-        <Bubbles data={data} forceStrength={forceStrength} center={center} />
+        <Bubbles
+          data={data}
+          forceStrength={forceStrength}
+          center={center}
+          keepPositionIntactMultiplier={keepPositionIntactMultiplier}
+        />
       </svg>
     );
   }
@@ -92,7 +105,8 @@ ReactBubbleChart.defaultProps = {
   height: 250,
   center: { x: 200, y: 125 },
   title: 'React Bubble Chart',
-  forceStrength: 0.03
+  forceStrength: 0.06,
+  keepPositionIntactMultiplier: 2.09
 };
 ReactBubbleChart.propTypes = {
   width: PropTypes.number.isRequired,
