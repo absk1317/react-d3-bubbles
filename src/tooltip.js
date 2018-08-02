@@ -11,16 +11,14 @@ function floatingTooltip(tooltipId, width) {
     .style('position', 'absolute')
     .style('top', '100px')
     .style('left', '100px')
-    .style('-moz-border-radius', '5px')
-    .style('border-radius', '5px')
-    .style('border', '2px solid #000')
+    .style('border', '1px solid #ccc')
     .style('background', '#fff')
-    .style('opacity', '0.9')
-    .style('color', 'black')
+    .style('color', '#485465')
     .style('padding', '10px')
     .style('width', '300px')
-    .style('font-size', '12px')
-    .style('z-index', '10');
+    .style('font-size', '14px')
+    .style('z-index', '10')
+    .style('max-width', '80px');
 
   if (width) {
     tt.style('width', '130px');
