@@ -5,37 +5,44 @@ import tooltip from './tooltip';
 export default class Bubbles extends React.Component {
   constructor(props) {
     super(props);
-    const { forceStrength, center } = props;
+    const {
+      forceStrength,
+      center
+    } = props;
     this.simulation = d3
       .forceSimulation()
       .velocityDecay(0.2)
       .force(
         'x',
         d3
-          .forceX()
-          .strength(forceStrength)
-          .x(center.x)
+        .forceX()
+        .strength(forceStrength)
+        .x(center.x)
       )
       .force(
         'y',
         d3
-          .forceY()
-          .strength(forceStrength)
-          .y(center.y)
+        .forceY()
+        .strength(forceStrength)
+        .y(center.y)
       )
       .force('charge', d3.forceManyBody().strength(this.charge.bind(this)))
       .on('tick', this.ticked.bind(this))
       .stop();
   }
 
-  state = { g: null };
+  state = {
+    g: null
+  };
 
   // shouldComponentUpdate() {
   //   return false;
   // }
 
   onRef = ref => {
-    this.setState({ g: d3.select(ref) }, () =>
+    this.setState({
+        g: d3.select(ref)
+      }, () =>
       this.renderBubbles(this.props.data)
     );
   };
@@ -51,7 +58,9 @@ export default class Bubbles extends React.Component {
   };
 
   charge = d => {
-    let { keepPositionIntactMultiplier } = this.props,
+    let {
+      keepPositionIntactMultiplier
+    } = this.props,
       multiplier = Math.random() * (2.2 - 2.1) + 2.1;
     if (keepPositionIntactMultiplier) multiplier = keepPositionIntactMultiplier;
 
@@ -81,13 +90,13 @@ export default class Bubbles extends React.Component {
       .attr('text-anchor', 'middle')
       .attr('fill', 'white')
       .classed('label', true)
-      .html(function(d) {
+      .html(function (d) {
         if (d.value && d.name) {
-          return `<tspan x=0 y=-20 dy="1em">${d.value}</tspan>
+          return `<tspan x=0 y=-20 dy="1em" font-weight='bold'>${d.value}</tspan>
                   <tspan x=0 y=-4 dy="1.2em">${d.name}</tspan>`;
         }
         if (d.value && !d.name) {
-          return `<tspan x=0 y=-6 dy="1em">${d.value}</tspan>`;
+          return `<tspan x=0 y=-6 dy="1em" font-weight='bold'>${d.value}</tspan>`;
         }
         if (d.name && !d.value) {
           return `<tspan x=0 y=-6 dy="1em">${d.name}</tspan>`;
@@ -109,7 +118,10 @@ export default class Bubbles extends React.Component {
   };
 
   render() {
-    return <g ref={this.onRef} className="bubbles" />;
+    return <g ref = {
+      this.onRef
+    }
+    className = "bubbles" / > ;
   }
 }
 
@@ -127,7 +139,7 @@ export function hideDetail(d) {
 }
 
 export function showDetailLabelHover(d, index, g) {
-  let elem = g.selectAll('.bubble').filter(function(d, i) {
+  let elem = g.selectAll('.bubble').filter(function (d, i) {
     return i === index;
   });
   elem.attr('fill', d3.rgb(d.color).darker(0.5));
