@@ -76,6 +76,8 @@ export default class Bubbles extends React.Component {
 
     const bubblesE = bubbles
       .enter()
+      .append('a')
+      .attr('xlink:href', d => d.link)
       .append('circle')
       .classed('bubble', true)
       .attr('r', 0)
